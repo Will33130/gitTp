@@ -1,16 +1,11 @@
-# This is a sample Python script.
+import requests
+s = requests.session()
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def getAge(name):
+    path = "https://api.agify.io?name=" + name
+    r = s.get(path).json()
+    print(r.get("age"))
 
+textinput = input("rentrez votre nom : \n")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+getAge(textinput)
